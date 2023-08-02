@@ -1,0 +1,29 @@
+﻿@model Departman
+@{
+    ViewData["Title"] = "Güncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title>Departman Güncelleme Sayfası</title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+</head>
+<h2>Departman Güncelleme Sayfası</h2>
+<br />
+<body>
+
+    <form class="form-control" method="post">
+        <label asp-for="DeparmanAd">Departman Ad</label>
+        <input type="text" asp-for="DeparmanAd" class="form-control" />
+        <span asp-validation-for="@Model.DeparmanAd" class="text-danger"></span>
+        <input type="hidden" asp-for="DepartmanId" class="form-control" />
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+
+    </form>
+</body>
+</html>
+
+

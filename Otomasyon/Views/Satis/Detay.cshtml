@@ -1,0 +1,57 @@
+﻿@model IEnumerable<SatisHareket>
+@{
+    ViewData["Title"] = "Detay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Satış Detay Sayfası </h1>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title> </title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+</head>
+<body>
+    <br />
+
+    <table  class="table table-hover">
+        <tr>
+            <td>Satış Id</td>
+            <td>Ürün</td>
+            <td>Cari</td>
+            <td>Personel</td>
+            <td>Fiyat</td>
+            <td>Adet</td>
+            <td>Toplam</td>
+            <td>Tarih</td>
+            @*<td>Yazdır</td>*@
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SatisId</td>
+                <td>@item.Urun.UrunAd</td>
+                <td>@item.Cari.CariAd @item.Cari.CariSoyad</td>
+                <td>@item.Personel.PersonelAd @item.Personel.PersonelSoyad</td>
+                <td>@item.Fiyat</td>
+                <td>@item.Adet</td>
+                <td>@item.ToplamTutar</td>
+                <td>@item.Tarih</td>
+                @*<td>
+                    <a class="btn btn-info" asp-controller="Satis" asp-action="Yazdır" asp-route-id=@item.SatisId> Yazdır</a>
+                </td>*@
+
+            </tr>
+
+        }
+    </table>
+
+  <button class="btn btn-outline-primary"> Yazdır </button>
+
+</body>
+</html>
+
+
+
+

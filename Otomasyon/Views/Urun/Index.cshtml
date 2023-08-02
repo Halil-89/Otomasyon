@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Urun>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title></title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+</head>
+<br />
+
+@using(Html.BeginForm("Index","Urun",FormMethod.Get))
+{
+    <p>
+        Ürün Adı: @Html.TextBox("p")
+        <input type="submit" value="Ara"/>
+    </p>
+}
+
+
+
+<table class="table table-bordered" style="margin-top:20px">
+    <thead>
+        <tr>
+           @* <td>Id</td>*@
+            <td>Urun Adı</td>
+            <td>Marka</td>
+            <td>Stok</td>
+            <td>Alış Fiyat</td>
+            <td>Satış Fiyat</td>
+            <td>Durum</td>
+           @* <td>Görsel</td>*@
+            <td>Kategori</td>
+            <td>Güncelle</td>
+            <td>Sil</td>
+             <td>Satiş Yap</td>
+           
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+              @*  <td>@item.UrunId</td>*@
+                <td>@item.UrunAd</td>
+                <td>@item.Marka</td>
+                <td>@item.Stok</td>
+                <td>@item.AlisFiyat</td>
+                <td>@item.SatisFiyat</td>
+                <td>@item.Durum</td>
+                @*<td>@item.UrunGorsel</td>*@
+                <td>@item.Kategori.KategoriAd</td>
+                <td>
+                    <a class="btn btn-success" asp-controller="Urun" asp-action="Güncelle" asp-route-id=@item.UrunId>Güncelle</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-controller="Urun" asp-action="Sil" asp-route-id=@item.UrunId> Sil</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-controller="Urun" asp-action="Satis" asp-route-id=@item.UrunId> Satiş YAp</a>
+                </td>
+            </tr>
+
+
+
+        }
+
+    </tbody>
+
+</table>
+<a asp-controller="Urun" asp-action="Ekle" class="btn btn-primary"> Yeni Ürün</a>
+
+</html>
+

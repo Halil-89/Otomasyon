@@ -1,0 +1,54 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Otomasyon.Models.Entities;
+using Otomasyon.Models.EntityConfiguration;
+
+namespace Otomasyon.Models.Context
+{
+    public class Context : DbContext
+    {
+
+        public Context(DbContextOptions<Context> options)
+           : base(options)
+        {
+        }
+        public DbSet<Admin> Admins { get; set; }
+        public DbSet<Cari> Caris { get; set; }
+        public DbSet<Departman> Departmans { get; set; }
+        public DbSet<Fatura> Faturas { get; set; }
+        public DbSet<FaturaKalem> FaturaKalems { get; set; }
+        public DbSet<Gider> Giders { get; set; }
+        public DbSet<Kategori> Kategoris { get; set; }
+        public DbSet<Personel> Personels { get; set; }
+        public DbSet<SatisHareket> SatisHarekets { get; set; }
+        public DbSet<Urun> Uruns { get; set; }
+        public DbSet<Detay> Detays { get; set; }
+        public DbSet<Yapilacak> Yapilacaks { get; set; }
+        public DbSet<KargoTakip> KargoTakips { get; set; }
+        public DbSet<KargoDetay> KargoDetays { get; set; }
+        public DbSet<Mesaj> Mesajs { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new Configuration());
+            modelBuilder.ApplyConfiguration(new CariConfiguration());
+            modelBuilder.ApplyConfiguration(new DepartmanConfiguration());
+            modelBuilder.ApplyConfiguration(new FaturanConfiguration());
+            modelBuilder.ApplyConfiguration(new FaturaKalemConfiguration());
+            modelBuilder.ApplyConfiguration(new GiderConfiguration());
+            modelBuilder.ApplyConfiguration(new KategoriConfiguration());
+            modelBuilder.ApplyConfiguration(new PersonelConfiguration());
+            modelBuilder.ApplyConfiguration(new SatisHareketConfiguration());
+            modelBuilder.ApplyConfiguration(new UrunConfiguration());
+            modelBuilder.ApplyConfiguration(new UrunDetayConfiguration());
+            modelBuilder.ApplyConfiguration(new YapilacakConfiguration());
+            modelBuilder.ApplyConfiguration(new KargoDetayConfiguration());
+            modelBuilder.ApplyConfiguration(new KargoTakipConfiguration());
+            modelBuilder.ApplyConfiguration(new MesajConfiguration());
+            base.OnModelCreating(modelBuilder);
+        }
+
+
+
+    }
+}

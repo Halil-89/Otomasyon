@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Fatura>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title></title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+</head>
+
+<table class="table table-bordered" style="margin-top:20px">
+    <thead>
+        <tr>
+            @* <td>Id</td>*@
+            @* <td>Seri No</td*@>
+            <td>Fatura No</td>
+            <td>Tarih</td>
+            <td>Saat</td>
+            @* <td>Vergi Dairesi</td>*@
+            <td>Toplam</td>
+            @*<td>Teslim Alan</td>
+            <td>Teslim Eden</td>*@
+            <td>Güncelle</td>
+            <td>Detaylar</td>
+            @*<td>PopUp Liste</td>*@
+            <td>Yeni Kalem</td>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                @* <td>@item.FaturaId</td>*@
+                <td>@item.FaturaSeriNo @item.FaturaSıraNo</td>
+                @*<td>@item.FaturaSıraNo</td>*@
+                <td>@item.Tarih</td>
+                <td>@item.Saat</td>
+                @* <td>@item.VergiDairesi</td>*@
+                <td>@item.Toplam ₺</td>
+                @* <td>@item.TeslimAlan</td>
+            <td>@item.TeslimEden</td>*@
+                <td>
+                    <a class="btn btn-success" asp-controller="Fatura" asp-action="Güncelle" asp-route-id=@item.FaturaId>Güncelle</a>
+                </td>
+                <td>
+                    <a class="btn btn-success" asp-controller="Fatura" asp-action="Detay" asp-route-id=@item.FaturaId>Detay</a>
+                </td>
+               @* <td>
+                    <a class="btn btn-warning" asp-controller="Fatura" asp-action="Detay" asp-route-id=@item.FaturaId>PopUp</a>
+                </td>*@
+                <td>
+                    <a class="btn btn-warning" asp-controller="Fatura" asp-action="Detay" asp-route-id=@item.FaturaId>Kalem</a>
+                </td>
+
+
+            </tr>
+
+
+
+        }
+
+    </tbody>
+
+</table>
+<a asp-controller="Fatura" asp-action="Ekle" class="btn btn-primary"> Yeni Fatura</a>
+<br />
+<br />
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal1">
+    PopUp PEnceresi
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="Modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Seri No</td>
+                        <td>Sıra No</td>
+                        <td>Tutar</td>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.FaturaSeriNo</td>
+                            <td>@item.FaturaSıraNo</td>
+                            <td>@item.Toplam</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+               @* <button type="button" class="btn btn-primary">Save changes</button>*@
+            </div>
+        </div>
+    </div>
+</div>
+</html>
+
+

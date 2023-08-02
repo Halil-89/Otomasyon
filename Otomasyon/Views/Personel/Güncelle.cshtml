@@ -1,0 +1,49 @@
+﻿@model Personel
+@{
+    ViewData["Title"] = "Güncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title>Personel Güncelleme Sayfası</title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+</head>
+<h2>Personel Güncelleme Sayfası</h2>
+<br />
+<body>
+
+    <form asp-controller="Personel" asp-action="Güncelle" enctype="multipart/form-data">
+        <input type="hidden" asp-for="PersonelId" class="form-control" />
+
+        <label asp-for="PersonelAd">Personel Adı</label>
+        <input type="text" asp-for="PersonelAd" class="form-control" />
+        <span asp-validation-for="@Model.PersonelAd" class="text-danger"></span>
+
+        <label asp-for="PersonelSoyad">Personel Soyad</label>
+        <input type="text" asp-for="PersonelSoyad" class="form-control" />
+        <span asp-validation-for="@Model.PersonelSoyad" class="text-danger"></span>
+
+        <label asp-for="PersonelGorsel">Görsel</label>
+        <input asp-for="PersonelGorsel" class="form-control" type="file" />
+        <span asp-validation-for="@Model.PersonelGorsel" class="text-danger"></span>
+
+        
+
+        <label asp-for="DepartmanId">Departrman</label>
+        <select class="form-control" asp-for="DepartmanId"
+                asp-items="(IEnumerable<SelectListItem>)ViewBag.departman">
+            <option value="">Seçiniz</option>
+            <span asp-validation-for="@Model.DepartmanId" class="text-danger"></span>
+
+        </select>
+
+        <br />
+        <button class="btn btn-success">Kaydet</button>
+
+    </form>
+</body>
+</html>
+
+

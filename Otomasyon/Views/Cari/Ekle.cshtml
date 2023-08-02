@@ -1,0 +1,42 @@
+﻿@model Cari
+@{
+    ViewData["Title"] = "Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title>Cari Ekleme Sayfası</title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+</head>
+<h2>Cari Ekleme Sayfası</h2>
+<br />
+<body>
+
+    <form class="form-control" method="post">
+        <label asp-for="CariAd">Cari Ad</label>
+        <input type="text" asp-for="CariAd" class="form-control" />
+         <span asp-validation-for="@Model.CariAd" class="text-danger"></span>
+
+        <label asp-for="CariSoyad">Cari Soyad</label>
+        <input type="text" asp-for="CariSoyad" class="form-control" />
+        <span asp-validation-for="@Model.CariSoyad" class="text-danger"></span>
+
+        <label asp-for="CariSehir">Cari Şehir</label>
+        <input type="text" asp-for="CariSehir" class="form-control" />
+        <span asp-validation-for="@Model.CariSehir" class="text-danger"></span>
+
+        <label asp-for="CariMail">Cari Mail</label>
+        <input type="text" asp-for="CariMail" class="form-control" />
+        <span asp-validation-for="@Model.CariMail" class="text-danger"></span>
+
+        <br />
+        <button class="btn btn-success">Kaydet</button>
+
+    </form>
+</body>
+</html>
+

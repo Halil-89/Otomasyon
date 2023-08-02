@@ -1,0 +1,48 @@
+﻿@model IEnumerable<FaturaKalem>
+@{
+    ViewData["Title"] = "Detay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title> </title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+</head>
+<body>
+    <br />
+   @* <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active"> Departman Adı: @ViewBag.departman</li>
+    </ol>*@
+
+    <table class="table table-hover">
+        <tr>
+            <td>Kalem Id</td>
+            <td>Açıklama</td>
+            <td>Miktar</td>
+            <td>Birim Fiyat</td>
+            <td>Tutar</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FaturaKalemId</td>
+                <td>@item.Aciklama</td>
+                <td>@item.Miktar</td>
+                <td>@item.BirimFiyat</td>
+                <td>@item.Tutar</td>
+               @* <td>
+                    <a class="btn btn-info" asp-controller="Fatura" asp-action="PersonelSatıs" asp-route-id=@item.PersonelId> Satışlar</a>
+                </td>*@
+
+            </tr>
+
+        }
+    </table>
+
+    <a class="btn btn-success" asp-controller="Fatura" asp-action="Yeni"> Kalem Ekle</a>
+
+</body>
+</html>
+

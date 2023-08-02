@@ -1,0 +1,70 @@
+﻿@model Fatura
+@{
+    ViewData["Title"] = "Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title>Fatura Ekleme Sayfası</title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+</head>
+<h2>Fatura Ekleme Sayfası</h2>
+<br />
+<body>
+
+    <form class="form-control" method="post">
+   @*     <label asp-for="FaturaId">Id</label>
+        <input type="text" asp-for="FaturaId" class="form-control" />
+        <span asp-validation-for="@Model.FaturaId" class="text-danger"></span>*@
+
+        <label asp-for="FaturaSeriNo">Seri No</label>
+        <input type="text" asp-for="FaturaSeriNo" class="form-control" />
+        <span asp-validation-for="@Model.FaturaSeriNo" class="text-danger"></span>
+
+        <label asp-for="FaturaSıraNo">Sıra No</label>
+        <input type="text" asp-for="FaturaSıraNo" class="form-control" />
+        <span asp-validation-for="@Model.FaturaSıraNo" class="text-danger"></span>
+
+        <label asp-for="Tarih">Tarih</label>
+        <input type="text" asp-for="Tarih" class="form-control" />
+        <span asp-validation-for="@Model.Tarih" class="text-danger"></span>
+
+        <label asp-for="VergiDairesi">Vergi Dairesi</label>
+        <input type="text" asp-for="VergiDairesi" class="form-control" />
+        <span asp-validation-for="@Model.VergiDairesi" class="text-danger"></span>
+
+        <label asp-for="Saat">Saat</label>
+        <input type="text" asp-for="Saat" class="form-control" />
+        <span asp-validation-for="@Model.Saat" class="text-danger"></span>
+
+        <label asp-for="TeslimAlan">Teslim Alan</label>
+        <input type="text" asp-for="TeslimAlan" class="form-control" />
+        <span asp-validation-for="@Model.TeslimAlan" class="text-danger"></span>
+
+        <label asp-for="TeslimEden">Teslim Eden</label>
+        <input type="text" asp-for="TeslimEden" class="form-control" />
+        <span asp-validation-for="@Model.TeslimEden" class="text-danger"></span>
+
+        <label asp-for="Toplam">Toplam</label>
+        <input type="text" asp-for="Toplam" class="form-control" />
+        <span asp-validation-for="@Model.Toplam" class="text-danger"></span>
+
+        @* <label asp-for="DepartmanId">Departman</label>
+        <select class="form-control" asp-for="DepartmanId"
+        asp-items="(IEnumerable<SelectListItem>)ViewBag.departman">
+        <option value="">Seçiniz</option>
+        <span asp-validation-for="@Model.DepartmanId" class="text-danger"></span>
+
+        </select>*@
+
+        <br />
+        <button class="btn btn-success">Kaydet</button>
+
+    </form>
+</body>
+</html>
+
+

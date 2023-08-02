@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "zingchart@2.8.6",
+      "destination": "wwwroot/zingchart/",
+      "files": [
+        "zingchart.min.js"
+      ]
+    }
+  ]
+}

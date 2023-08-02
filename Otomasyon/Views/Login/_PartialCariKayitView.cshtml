@@ -1,0 +1,23 @@
+﻿@model Cari
+
+<div class="login-form login-form-left">
+	<div class="agile-row">
+		<h3>Yeni Cari Kaydı</h3>
+		<div class="login-agileits-top">
+			@using (Html.BeginForm("PartialCariKAyitView", "Login", FormMethod.Post))
+			@*<form class="form-control" method="post">*@
+				{
+				<input type="text" class="adınız" asp-for="CariAd" Placeholder="Adınız" required="" />
+				<input type="text" class="soyadınız" asp-for="CariSoyad" Placeholder="Soyadınız" required="" />
+				<input type="text" class="sehir" asp-for="CariSehir" Placeholder="Şehir" required="" />
+				<input type="text" class="email" asp-for="CariMail" Placeholder="Mail Adresiniz" required="" />
+				<input type="password" class="password" asp-for="CariSifre" Placeholder="Şifre" required="" />
+				<div class="login-check">
+					<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i> Kuralları okudum & Kabul ediyorum </label>
+				</div>
+				<input type="submit" value="Kaydol">
+			}
+			@*</form>*@
+		</div>
+	</div>
+</div>

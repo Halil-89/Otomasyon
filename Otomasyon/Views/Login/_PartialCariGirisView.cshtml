@@ -1,0 +1,17 @@
+﻿@model Cari
+
+<div class="login-form login-form-left">
+    <div class="agile-row">
+        <h3>Cari Girişi</h3>
+        <div class="clear"></div>
+        <div class="login-agileits-top">
+            @using (Html.BeginForm("PartialCariGirisView", "Login", FormMethod.Post))
+           {
+                <input type="text" class="name" asp-for="CariMail" Placeholder="Cari Mail" required="" />
+                <input type="password" class="password" asp-for="CariSifre" Placeholder="Şifre" required="" />
+                <input type="submit" value="Giriş">
+            }
+        </div>
+        
+    </div>
+</div>

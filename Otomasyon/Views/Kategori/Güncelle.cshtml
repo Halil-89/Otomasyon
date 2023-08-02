@@ -1,0 +1,31 @@
+﻿@model Kategori
+@{
+    ViewData["Title"] = "Güncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Getir</h1>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title>Kategori Güncelleme Sayfası</title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+</head>
+<h2>Kategori Güncelleme Sayfası</h2>
+<br />
+<body>
+
+    <form class="form-control" method="post">
+        <label asp-for="KategoriAd">Katagori Ad</label>
+        <input type="text" asp-for="KategoriAd" class="form-control" />
+        <span asp-validation-for="@Model.KategoriAd" class="text-danger"></span>
+        <input type="hidden" asp-for="KategoriId" class="form-control" />
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+
+    </form>
+</body>
+</html>
+
+

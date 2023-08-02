@@ -1,0 +1,61 @@
+﻿@model IEnumerable<KargoDetay>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title></title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+</head>
+<br />
+
+@using (Html.BeginForm("Index", "Kargo", FormMethod.Get))
+{
+    <p>
+        Kargo Takip Numarası: @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <thead>
+        <tr>
+           
+            <td>Personel</td>
+            <td>Alıcı</td>
+            <td>Tarih</td>
+            <td>Takip Kodu</td>
+            <td>Detaylar</td>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+               
+                <td>@item.Personel</td>
+                <td>@item.Alıcı</td>
+                <td>@item.Tarih</td>
+                <td>@item.TakipKodu</td>
+                <td>
+                    <a class="btn btn-success" asp-controller="Kargo" asp-action="Detay" asp-route-id=@item.TakipKodu>Detaylar</a>
+                </td>
+                
+            </tr>
+
+
+
+        }
+
+    </tbody>
+
+</table>
+<a asp-controller="Kargo" asp-action="Ekle" class="btn btn-primary"> Yeni Kargo</a>
+
+</html>
+

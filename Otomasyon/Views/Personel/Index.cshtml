@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Personel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<h1>Personel Listesi</h1>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+</head>
+<table class="table table-bordered" style="margin-top:20px">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Adı</td>
+            <td>Soyadı</td>
+            <td>Gorsel</td>
+            <td>Departman</td>
+            <td>Güncelle</td>
+            @*<td>Sil</td>*@
+            <td>Satış Geçmişi</td>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.PersonelId</td>
+                <td>@item.PersonelAd</td>
+                <td>@item.PersonelSoyad</td>
+                <td>
+                    <img src="@item.PersonelGorsel" style="width:100px; height:50px" />
+                </td>
+                <td>@item.Departman.DeparmanAd</td>
+
+                <td>
+                    <a class="btn btn-success" asp-controller="Personel" asp-action="Güncelle" asp-route-id=@item.PersonelId>Güncelle</a>
+                </td>
+               @* <td>
+                    <a class="btn btn-danger" asp-controller="Cari" asp-action="Sil" asp-route-id=@item.PersonelId> Sil</a>
+                </td>*@
+                <td>
+                    <a class="btn btn-warning" asp-controller="Departman" asp-action="Detay" asp-route-id=@item.PersonelId> Satış Geçmişi</a>
+                </td>
+            </tr>
+
+
+
+        }
+
+    </tbody>
+
+</table>
+
+<a asp-controller="Personel" asp-action="Ekle" class="btn btn-primary"> Yeni Personel</a>
+</html>

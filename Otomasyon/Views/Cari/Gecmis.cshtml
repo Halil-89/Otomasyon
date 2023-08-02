@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SatisHareket>
+@{
+    ViewData["Title"] = "Gecmis";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Cari Geçmişi Ekranı</h1>
+
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"> Cari Adı: @ViewBag.cari</li>
+</ol>
+<table class="table table-bordered" style="margin-top:20px">
+    <thead>
+        <tr>
+            <td>Satış Id</td>
+            <td>Ürün</td>
+            <td>Personel</td>
+            <td>Fiyat</td>
+            <td>Adet</td>
+            <td>Toplam</td>
+            <td>Tarih</td>
+            <td>Yazdır</td>
+
+
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SatisId</td>
+                <td>@item.Urun.UrunAd</td>
+                <td>@item.Personel.PersonelAd @item.Personel.PersonelSoyad</td>
+                <td>@item.Fiyat</td>
+                <td>@item.Adet</td>
+                <td>@item.ToplamTutar</td>
+                <td>@item.Tarih</td>
+                <td>
+                    <a class="btn btn-info" asp-controller="" asp-action="" asp-route-id=@item.PersonelId> Yazdır</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+

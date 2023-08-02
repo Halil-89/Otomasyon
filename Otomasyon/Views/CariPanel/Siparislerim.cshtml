@@ -1,0 +1,44 @@
+﻿@model IEnumerable<SatisHareket>
+
+@{
+    ViewData["Title"] = "Siparislerim";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+
+<h1>Siparişlerim</h1>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title></title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+</head>
+<table id="tbl1" class="table table-bordered" style="margin-top:20px">
+    <thead>
+        <tr>
+            
+            <td>Ürün Adı</td>
+            <td>Fiyat</td>
+            <td>Tarih</td>
+            
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Urun.UrunAd</td>
+                <td>@item.Fiyat</td>
+                <td>@Convert.ToDateTime(@item.Tarih).ToString("dd/MM/yyyy")</td>
+
+            </tr>
+
+
+        }
+    </tbody>
+
+
+</table>
+
+

@@ -1,0 +1,44 @@
+﻿@model KargoDetay
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title>Yeni Kargo Sayfası</title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+</head>
+<h2>Yeni Departman Sayfası</h2>
+<br />
+<body>
+
+    <form class="form-control" method="post">
+      
+        <label asp-for="TakipKodu">Takip Kodu</label>
+        <input type="text" asp-for="TakipKodu" value="@ViewBag.takip" class="form-control" readonly/>
+        <span asp-validation-for="@Model.TakipKodu" class="text-danger"></span>
+
+        <label asp-for="Personel">Personel</label>
+        <input type="text" asp-for="Personel" class="form-control" />
+        <span asp-validation-for="@Model.Personel" class="text-danger"></span>
+
+        <label asp-for="Alıcı">Alıcı</label>
+        <input type="text" asp-for="Alıcı" class="form-control" />
+        <span asp-validation-for="@Model.Alıcı" class="text-danger"></span>
+
+        <label asp-for="Tarih">Tarih</label>
+        <input type="date" asp-for="Tarih" class="form-control" />
+        <span asp-validation-for="@Model.Tarih" class="text-danger"></span>
+
+        <label asp-for="Aciklama">Acıklama</label>
+        <input type="text" asp-for="Aciklama" class="form-control" />
+        <span asp-validation-for="@Model.Aciklama" class="text-danger"></span>
+        <br />
+        <button class="btn btn-success">Kaydet</button>
+
+    </form>
+</body>
+</html>
+
